@@ -1,0 +1,7 @@
+{
+  "CompileFlags": {
+    "Add": [
+        "-I/home/shui/Work/ING2/ISIM/TP1/include",
+    ]
+  }
+}

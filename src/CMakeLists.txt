@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.21.2)
+
+add_subdirectory(geometry)
+add_subdirectory(image)
+add_subdirectory(motor)
+add_subdirectory(scene)
+add_subdirectory(logger)
