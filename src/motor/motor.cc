@@ -33,7 +33,7 @@ Image Motor::render()
 {
     std::list<Color*> pixels(width_pixels_ * height_pixels_, nullptr);
 
-    const Point3 &c = scene_.getCamera().getCenter();
+    // const Point3 &c = scene_.getCamera().getCenter();
 
     Logger::getInstance().log(Logger::Level::INFO, "Rendering image...");
 
@@ -41,11 +41,11 @@ Image Motor::render()
     int j = 0;
     for (auto p = pixels.begin(); p != pixels.end(); p++)
     {
-        Vector3 vect = determineRay(i, j);
-        *p = castRay(c, vect);
+        // Vector3 vect = determineRay(i, j);
+        // *p = castRay(c, vect);
 
-        // std::list<Vector3> rays = determineRays(i, j);
-        // *p = determineColor(rays);
+        std::list<Vector3> rays = determineRays(i, j);
+        *p = determineColor(rays);
 
         i++;
 
@@ -76,13 +76,15 @@ std::list<Vector3> Motor::determineRays(const int i, const int j)
 {
     std::list<Vector3> rays;
 
+    double nb_ray = 10.0;
+    double nb_ray_sqrt = sqrt(nb_ray);
 
-    for (int k = 1; k <= 7; k++)
+    for (int k = 1; k <= nb_ray_sqrt; k++)
     {
-        for (int l = 1; l <= 7; l++)
+        for (int l = 1; l <= nb_ray_sqrt; l++)
         {
-            double u = (2.0 * (i + (1.0 / k) / 7.0) / width_pixels_ - 1.0) * width_ / 2.0;
-            double v = (1.0 - 2.0 * (j + (1.0 / l) / 7.0) / height_pixels_) * height_ / 2.0;
+            double u = (2.0 * (i + k / nb_ray_sqrt) / width_pixels_ - 1.0) * width_ / 2.0;
+            double v = (1.0 - 2.0 * (j + l / nb_ray_sqrt) / height_pixels_) * height_ / 2.0;
 
             Vector3 rayDirection = (forward * scene_.getCamera().getZmin() + right * u + up * v);
 
