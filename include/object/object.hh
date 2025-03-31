@@ -3,7 +3,7 @@
 #include "geometry/point.hh"
 #include "geometry/vector.hh"
 #include "image/color.hh"
-#include "scene/texture_material.hh"
+#include "texture/texture_material.hh"
 
 #include <map>
 

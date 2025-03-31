@@ -1,7 +1,5 @@
-#include "scene/triangle.hh"
+#include "object/triangle.hh"
 #include "geometry/vector.hh"
-#include <ios>
-#include <iostream>
 
 Triangle::Triangle(Point3 p1, Point3 p2, Point3 p3, TextureMaterial* texture)
 : Object(texture), p1_(p1), p2_(p2), p3_(p3)

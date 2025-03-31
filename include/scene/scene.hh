@@ -1,8 +1,8 @@
 #pragma once
 
-#include "object.hh"
-#include "light.hh"
-#include "camera.hh"
+#include "object/object.hh"
+#include "light/light.hh"
+#include "scene/camera.hh"
 
 #include <list>
 

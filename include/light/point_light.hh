@@ -1,7 +1,7 @@
 #pragma once
 
 #include "geometry/point.hh"
-#include "scene/light.hh"
+#include "light/light.hh"
 
 class PointLight : public Light {
 public:

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "scene/object.hh"
-#include "scene/texture_material.hh"
+#include "object/object.hh"
+#include "texture/texture_material.hh"
 
 class Triangle : public Object {
     public:

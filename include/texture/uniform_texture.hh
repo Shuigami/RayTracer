@@ -1,7 +1,7 @@
 #pragma once
 
 #include "image/color.hh"
-#include "texture_material.hh"
+#include "texture/texture_material.hh"
 
 class UniformTexture : public TextureMaterial {
 public:

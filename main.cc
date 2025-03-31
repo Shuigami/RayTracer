@@ -2,13 +2,13 @@
 #include "geometry/vector.hh"
 #include "motor/motor.hh"
 #include "scene/camera.hh"
-#include "scene/light.hh"
-#include "scene/object.hh"
-#include "scene/plane.hh"
-#include "scene/point_light.hh"
+#include "light/light.hh"
+#include "object/object.hh"
+#include "object/plane.hh"
+#include "light/point_light.hh"
 #include "scene/scene.hh"
-#include "scene/sphere.hh"
-#include "scene/uniform_texture.hh"
+#include "object/sphere.hh"
+#include "texture/uniform_texture.hh"
 
 #include <cmath>
 

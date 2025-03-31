@@ -1,4 +1,4 @@
-#include "scene/point_light.hh"
+#include "light/point_light.hh"
 
 PointLight::PointLight(Point3 position, double intensity)
 : position_(position), intensity_(intensity)

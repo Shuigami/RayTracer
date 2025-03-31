@@ -1,7 +1,6 @@
-#include "scene/sphere.hh"
+#include "object/sphere.hh"
 #include "geometry/point.hh"
 #include "geometry/vector.hh"
-#include "scene/object.hh"
 
 #include <cmath>
 

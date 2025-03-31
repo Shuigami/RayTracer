@@ -3,7 +3,7 @@
 #include "geometry/vector.hh"
 #include "image/color.hh"
 #include "scene/camera.hh"
-#include "scene/plane.hh"
+#include "object/plane.hh"
 #include "scene/scene.hh"
 #include "logger/logger.hh"
 

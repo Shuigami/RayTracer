@@ -1,6 +1,6 @@
-#include "scene/plane.hh"
+#include "object/plane.hh"
 #include "geometry/vector.hh"
-#include "scene/object.hh"
+#include "object/object.hh"
 
 Plane::Plane(Point3 p, Vector3 u, Vector3 v, UniformTexture* texture)
 : Object(texture), p_(p), u_(u), v_(v)

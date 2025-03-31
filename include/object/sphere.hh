@@ -1,8 +1,8 @@
 #pragma once
 
 #include "geometry/point.hh"
-#include "scene/object.hh"
-#include "scene/uniform_texture.hh"
+#include "object/object.hh"
+#include "texture/uniform_texture.hh"
 
 class Sphere : public Object {
 public:

@@ -1,4 +1,4 @@
-#include "scene/object.hh"
+#include "object/object.hh"
 
 Object::Object(TextureMaterial* texture)
 : texture_(texture)

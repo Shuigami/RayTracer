@@ -1,5 +1,5 @@
-#include "scene/uniform_texture.hh"
-#include "scene/texture_material.hh"
+#include "texture/uniform_texture.hh"
+#include "texture/texture_material.hh"
 
 UniformTexture::UniformTexture(Color color, double ka, double kd, double ks, double kr, double ns)
 : TextureMaterial(color), ka_(ka), kd_(kd), ks_(ks), kr_(kr), ns_(ns)
