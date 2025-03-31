@@ -189,11 +189,11 @@ Color* Motor::castRay(const Point3 &c, const Vector3 &vect, const int depth)
             + object_color * info["ks"] * intensity * std::pow(std::max(0.0, s * l), info["ns"]);
     }
 
-    // Color* reflection = castRay(closest_intersection, s, depth + 1);
+    Color* reflection = castRay(closest_intersection, s, depth + 1);
 
-    // *tmp_ = *tmp_ + *reflection * info["kr"];
+    *tmp_ = *tmp_ + *reflection * info["kr"];
 
-    // delete reflection;
+    delete reflection;
     delete color;
     color = tmp_;
 
