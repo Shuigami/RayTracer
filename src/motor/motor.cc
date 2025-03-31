@@ -8,6 +8,8 @@
 #include "logger/logger.hh"
 
 #include <cmath>
+#include <memory_resource>
+#include <sys/types.h>
 
 Motor::Motor(Scene scene)
 : scene_(scene), width_(0), height_(0), ratio_(533.031282), width_pixels_(0), height_pixels_(0)
@@ -33,7 +35,7 @@ Image Motor::render()
 {
     std::list<Color*> pixels(width_pixels_ * height_pixels_, nullptr);
 
-    // const Point3 &c = scene_.getCamera().getCenter();
+    const Point3 &c = scene_.getCamera().getCenter();
 
     Logger::getInstance().log(Logger::Level::INFO, "Rendering image...");
 
@@ -41,11 +43,11 @@ Image Motor::render()
     int j = 0;
     for (auto p = pixels.begin(); p != pixels.end(); p++)
     {
-        // Vector3 vect = determineRay(i, j);
-        // *p = castRay(c, vect);
+        Vector3 vect = determineRay(i, j);
+        *p = castRay(c, vect);
 
-        std::list<Vector3> rays = determineRays(i, j);
-        *p = determineColor(rays);
+        // std::list<Vector3> rays = determineRays(i, j);
+        // *p = determineColor(rays);
 
         i++;
 
@@ -184,16 +186,15 @@ Color* Motor::castRay(const Point3 &c, const Vector3 &vect, const int depth)
             n = n * -1;
 
         *tmp_ = *tmp_
-            + object_color * info["ka"] * intensity
             + object_color * info["kd"] * intensity * std::max(0.0, n * l)
             + object_color * info["ks"] * intensity * std::pow(std::max(0.0, s * l), info["ns"]);
     }
 
-    Color* reflection = castRay(closest_intersection, s, depth + 1);
+    // Color* reflection = castRay(closest_intersection, s, depth + 1);
 
-    *tmp_ = *tmp_ + *reflection * info["kr"];
+    // *tmp_ = *tmp_ + *reflection * info["kr"];
 
-    delete reflection;
+    // delete reflection;
     delete color;
     color = tmp_;
 

@@ -37,5 +37,8 @@ int main()
     Motor motor(scene);
 
     Image image = motor.render();
+
+    image.gradient_to_ppm("gradient.ppm");
+
     image.image_to_ppm("image.ppm");
 }

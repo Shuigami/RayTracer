@@ -8,6 +8,8 @@ class Image {
 public:
     Image(int height, int width, std::list<Color*> pixels);
 
+    void gradient_to_ppm(std::string path);
+
     void image_to_ppm(std::string path);
 
 private:
