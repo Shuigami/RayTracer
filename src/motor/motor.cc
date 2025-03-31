@@ -8,7 +8,6 @@
 #include "logger/logger.hh"
 
 #include <cmath>
-#include <memory_resource>
 #include <sys/types.h>
 
 Motor::Motor(Scene scene)
