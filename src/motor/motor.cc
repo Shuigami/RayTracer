@@ -2,6 +2,7 @@
 #include "geometry/point.hh"
 #include "geometry/vector.hh"
 #include "image/color.hh"
+#include "object/cube.hh"
 #include "scene/camera.hh"
 #include "object/plane.hh"
 #include "scene/scene.hh"
@@ -181,12 +182,13 @@ Color* Motor::castRay(const Point3 &c, const Vector3 &vect, const int depth)
         double intensity = light->getIntensity();
 
         Plane *plane = dynamic_cast<Plane*>(closest_object);
-        if (plane != nullptr && n * l < 0)
+        Cube *cube = dynamic_cast<Cube*>(closest_object);
+        if ((plane != nullptr || cube != nullptr) && n * l < 0)
             n = n * -1;
 
         *tmp_ = *tmp_
             + object_color * info["kd"] * intensity * std::max(0.0, n * l)
-            + object_color * info["ks"] * intensity * std::pow(std::max(0.0, s * l), info["ns"]);
+            + light->getColor() * info["ks"] * intensity * std::pow(std::max(0.0, s * l), info["ns"]);
     }
 
     Color* reflection = castRay(closest_intersection, s, depth + 1);
