@@ -92,3 +92,8 @@ const Vector3& Plane::getV() const
 {
     return v_;
 }
+
+void Plane::move(const Point3& p)
+{
+    p_ = p_ + p;
+}

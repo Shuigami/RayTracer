@@ -3,6 +3,7 @@
 #include "geometry/vector.hh"
 #include "image/color.hh"
 #include "object/cube.hh"
+#include "object/triangle.hh"
 #include "scene/camera.hh"
 #include "object/plane.hh"
 #include "scene/scene.hh"
@@ -84,7 +85,7 @@ std::list<Vector3> Motor::determineRays(const int i, const int j)
     for (int k = 1; k <= nb_ray_sqrt; k++)
     {
         for (int l = 1; l <= nb_ray_sqrt; l++)
-        {
+         {
             double u = (2.0 * (i + k / nb_ray_sqrt) / width_pixels_ - 1.0) * width_ / 2.0;
             double v = (1.0 - 2.0 * (j + l / nb_ray_sqrt) / height_pixels_) * height_ / 2.0;
 
@@ -183,8 +184,23 @@ Color* Motor::castRay(const Point3 &c, const Vector3 &vect, const int depth)
 
         Plane *plane = dynamic_cast<Plane*>(closest_object);
         Cube *cube = dynamic_cast<Cube*>(closest_object);
-        if ((plane != nullptr || cube != nullptr) && n * l < 0)
+        Triangle *triangle = dynamic_cast<Triangle*>(closest_object);
+        if ((plane != nullptr || cube != nullptr || triangle != nullptr) && n * l < 0)
             n = n * -1;
+
+        // double prod_scalaire = n * l;
+
+        // if (prod_scalaire < 0.5)
+        //     prod_scalaire = 0.5;
+        // else
+        //     prod_scalaire = 1;
+
+        // double prod_specular = s * l;
+
+        // if (prod_specular < 0.9)
+        //     prod_specular = 0;
+        // else
+        //     prod_specular = 1;
 
         *tmp_ = *tmp_
             + object_color * info["kd"] * intensity * std::max(0.0, n * l)

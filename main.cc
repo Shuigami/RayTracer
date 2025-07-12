@@ -2,6 +2,7 @@
 #include "geometry/vector.hh"
 #include "motor/motor.hh"
 #include "object/cube.hh"
+#include "object/triangle.hh"
 #include "scene/camera.hh"
 #include "light/light.hh"
 #include "object/object.hh"
@@ -19,17 +20,17 @@ int main()
 
     PointLight* light = new PointLight(Color(255, 255, 255), Point3(0, 2, 3), 1);
 
-    Plane* plane = new Plane(Point3(0, -1, 0), Vector3(1, 0, 0), Vector3(0, 0, 1), UniformTexture::PlasticMat(Color(255)));
+    Plane* plane = new Plane(Point3(0, -1, 0), Vector3(1, 0, 0), Vector3(0, 0, 1), UniformTexture::Plastic(Color(255)));
     Plane* plane2 = new Plane(Point3(0, 0, -1), Vector3(1, 0, 0), Vector3(0, 1, 0), UniformTexture::Metal(Color(255)));
 
-    Sphere* sphere = new Sphere(1, Point3(0, 0, 0), UniformTexture::Plastic(Color(255, 0, 0)));
-    Sphere* sphere2 = new Sphere(1, Point3(2, 0, 0), UniformTexture::Plastic(Color(0, 255, 0)));
+    Triangle* triangle = new Triangle(Point3(0, 0, 0), Point3(0, 1, 0), Point3(1, 0, 0), UniformTexture::PlasticMat(Color(255, 0, 0)));
+    Triangle* triangle2 = new Triangle(Point3(1, 0, 0), Point3(0, 1, 0), Point3(1, 1, 0), UniformTexture::PlasticMat(Color(0, 255, 0)));
 
     std::list<Object*> objects;
     objects.push_front(plane);
     objects.push_front(plane2);
-    objects.push_front(sphere);
-    objects.push_front(sphere2);
+    objects.push_front(triangle);
+    objects.push_back(triangle2);
 
     std::list<Light*> lights;
     lights.push_front(light);

@@ -1,7 +1,6 @@
 #include "object/cube.hh"
 
 #include "object/plane.hh"
-#include <iostream>
 #include <limits>
 
 Cube::Cube(Point3 p, double size, TextureMaterial* texture) : Object(texture), p_(p), size_(size), planes() {
@@ -67,4 +66,17 @@ const Point3& Cube::getP() const {
 
 double Cube::getSize() const {
     return size_;
+}
+
+bool Cube::isInside(const Point3& p) const {
+    return p.getX() >= p_.getX() && p.getX() <= p_.getX() + size_ &&
+           p.getY() >= p_.getY() && p.getY() <= p_.getY() + size_ &&
+           p.getZ() >= p_.getZ() && p.getZ() <= p_.getZ() + size_;
+}
+
+void Cube::move(const Point3& p) {
+    p_ = p_ + p;
+    for (Plane& plane : planes) {
+        plane.move(p);
+    }
 }

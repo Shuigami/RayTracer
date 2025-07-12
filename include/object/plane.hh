@@ -16,6 +16,8 @@ public:
     const Vector3& getU() const;
     const Vector3& getV() const;
 
+    void move(const Point3& p);
+
 private:
     Point3 p_;
     Vector3 u_;

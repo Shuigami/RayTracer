@@ -14,6 +14,9 @@ class Cube : public Object {
 
         const Point3& getP() const;
         double getSize() const;
+        bool isInside(const Point3& p) const;
+
+        void move(const Point3& p);
     private:
         Point3 p_;
         double size_;
