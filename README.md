@@ -1,35 +1,35 @@
-# 3D Raytracer
+# 🌟 3D Raytracer
 
 A modern C++ raytracer implementation with support for multiple geometric primitives, lighting, and material systems.
 
-## Features
+## ✨ Features
 
-### Geometric Primitives
+### 🔺 Geometric Primitives
 - **Sphere**: Configurable radius and center position
 - **Plane**: Defined by a point and two direction vectors
 - **Triangle**: Three-point triangle mesh support
 - **Cube**: Axis-aligned box with configurable size
 - **Blob**: Metaball implementation using marching cubes algorithm
 
-### Lighting System
+### 💡 Lighting System
 - **Point Light**: Omnidirectional light source with position and intensity
 - **Ambient lighting**: Global illumination support
 - **Multiple light sources**: Support for complex lighting setups
 
-### Materials and Textures
+### 🎨 Materials and Textures
 - **Uniform Texture**: Solid color materials
 - **Plastic Materials**: Realistic plastic shading
 - **Metal Materials**: Metallic surface properties
 - **Configurable material properties**: Ambient, diffuse, and specular coefficients
 
-### Rendering Features
+### 🖼️ Rendering Features
 - **Ray-object intersection**: Precise mathematical intersection calculations
 - **Surface normals**: Accurate normal computation for all primitives
 - **Camera system**: Configurable camera position, target, and field of view
 - **Anti-aliasing**: Multi-sampling for smooth edges
 - **PPM output**: Standard image format output
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 raytracer/
@@ -56,13 +56,13 @@ raytracer/
 └── README.md               # This file
 ```
 
-## Building the Project
+## 🔨 Building the Project
 
-### Prerequisites
+### 📋 Prerequisites
 - CMake 3.21.2 or higher
 - C++20 compatible compiler (GCC 10+, Clang 12+, MSVC 19.29+)
 
-### Build Instructions
+### 🚀 Build Instructions
 
 1. **Clone the repository**:
    ```bash
@@ -89,7 +89,7 @@ raytracer/
 
 This will generate an `image.ppm` file in the current directory.
 
-## Usage Example
+## 💻 Usage Example
 
 ```cpp
 #include "scene/camera.hh"
@@ -129,19 +129,19 @@ int main() {
 }
 ```
 
-## Key Classes
+## 🏗️ Key Classes
 
-### Core Rendering
+### ⚙️ Core Rendering
 - **Motor**: Main rendering engine that handles ray generation and casting
 - **Scene**: Container for objects, lights, and camera
 - **Camera**: Defines viewpoint and projection parameters
 
-### Geometry
+### 📐 Geometry
 - **Point3**: 3D point representation
 - **Vector3**: 3D vector with mathematical operations
 - **Matrix**: Matrix operations for transformations
 
-### Objects
+### 🎯 Objects
 - **Object**: Base class for all renderable objects
 - **Sphere**: Sphere primitive with radius and center
 - **Plane**: Infinite plane defined by point and two vectors
@@ -149,29 +149,29 @@ int main() {
 - **Cube**: Axis-aligned box primitive
 - **Blob**: Metaball using marching cubes
 
-### Materials
+### 🖌️ Materials
 - **TextureMaterial**: Base material class
 - **UniformTexture**: Solid color materials with different properties
 
-## Algorithms
+## 🧮 Algorithms
 
-### Ray-Object Intersection
+### 🎯 Ray-Object Intersection
 - **Sphere**: Quadratic equation solving for ray-sphere intersection
 - **Plane**: Line-plane intersection using dot products
 - **Triangle**: Möller-Trumbore algorithm for ray-triangle intersection
 - **Cube**: Ray-AABB intersection testing
 
-### Lighting Model
+### 💡 Lighting Model
 - **Phong Illumination**: Ambient + Diffuse + Specular lighting
 - **Shadow Rays**: Occlusion testing for realistic shadows
 - **Multiple Light Sources**: Accumulative lighting from multiple sources
 
-### Marching Cubes
+### 🧊 Marching Cubes
 - **Blob Rendering**: Procedural surface generation using marching cubes
 - **Potential Field**: Scalar field evaluation for metaball surfaces
 - **Triangle Mesh Generation**: Automatic mesh creation from implicit surfaces
 
-## Configuration
+## ⚙️ Configuration
 
 The raytracer can be configured through:
 - **Camera parameters**: Position, target, up vector, field of view
@@ -179,7 +179,7 @@ The raytracer can be configured through:
 - **Light properties**: Color, intensity, position
 - **Rendering quality**: Anti-aliasing samples, resolution
 
-## Output Format
+## 📤 Output Format
 
 The raytracer outputs images in PPM (Portable Pixmap) format, which can be viewed with most image viewers or converted to other formats using tools like ImageMagick:
 
@@ -187,18 +187,18 @@ The raytracer outputs images in PPM (Portable Pixmap) format, which can be viewe
 convert image.ppm image.png
 ```
 
-## Performance Considerations
+## ⚡ Performance Considerations
 
 - **Spatial Data Structures**: Consider implementing BVH or octree for complex scenes
 - **Parallel Rendering**: Multi-threading support for faster rendering
 - **Memory Management**: Efficient memory usage for large scenes
 - **Optimization**: Compiler optimizations enabled in release builds
 
-## License
+## 📄 License
 
 This project is part of an academic assignment. Please respect academic integrity policies when using this code.
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - Based on classical raytracing algorithms from computer graphics literature
 - Marching cubes implementation follows the original Lorensen-Cline algorithm
